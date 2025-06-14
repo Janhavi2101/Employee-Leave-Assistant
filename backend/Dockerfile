@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y git libgl1-mesa-glx libglib2.0-0
 COPY . /app
 
 # 👇 Pass HF_TOKEN from Render env into Hugging Face auth
-ENV HUGGINGFACE_HUB_TOKEN=$HF_TOKEN
+ENV HUGGINGFACE_HUB_TOKEN=$HF_TOKEN1
 
 RUN pip install --upgrade pip && \
     pip install --no-cache-dir fastapi uvicorn transformers accelerate bitsandbytes pandas PyMuPDF openpyxl
