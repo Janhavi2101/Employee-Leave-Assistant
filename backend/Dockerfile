@@ -12,10 +12,15 @@ COPY . /app
 
 # Install Python dependencies
 RUN pip install --upgrade pip && \
-    pip install --no-cache-dir fastapi uvicorn transformers accelerate bitsandbytes pandas PyMuPDF openpyxl
+    pip install --no-cache-dir fastapi uvicorn transformers accelerate bitsandbytes pandas PyMuPDF openpyxl huggingface_hub
 
-# Preload model to cache (avoid cold start delay)
-RUN python -c "from transformers import pipeline; pipeline('text2text-generation', model='google/gemma-1.1-7b-it')"
+# Set HF token and model cache path
+ARG HF_TOKEN
+ENV HF_TOKEN=${HF_TOKEN}
+ENV TRANSFORMERS_CACHE=/app/.cache
+
+# Download model using huggingface_hub with token
+RUN python -c "from huggingface_hub import snapshot_download; snapshot_download(repo_id='google/gemma-1.1-7b-it', token='${HF_TOKEN}')"
 
 # Expose API port
 EXPOSE 10000
