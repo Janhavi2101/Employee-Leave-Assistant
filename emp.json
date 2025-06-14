@@ -1,0 +1,99 @@
+[
+  {
+    "name": "Janhavi Gangawane",
+    "id": "E101",
+    "leave_taken": 8,
+    "leave_quota": 20,
+    "pending_tasks": 3,
+    "last_leave_date": "2025-04-20"
+  },
+  {
+    "name": "Harshi Lodha",
+    "id": "E102",
+    "leave_taken": 12,
+    "leave_quota": 20,
+    "pending_tasks": 1,
+    "last_leave_date": "2025-03-11"
+  },
+  {
+    "name": "Ramyaa B.",
+    "id": "E103",
+    "leave_taken": 5,
+    "leave_quota": 20,
+    "pending_tasks": 0,
+    "last_leave_date": "2025-05-10"
+  },
+  {
+    "name": "Ashlyn Sebastian",
+    "id": "E104",
+    "leave_taken": 10,
+    "leave_quota": 20,
+    "pending_tasks": 4,
+    "last_leave_date": "2025-02-28"
+  },
+  {
+    "name": "Akaash Gupta",
+    "id": "E105",
+    "leave_taken": 6,
+    "leave_quota": 20,
+    "pending_tasks": 2,
+    "last_leave_date": "2025-04-02"
+  },
+  {
+    "name": "Farhan Ali",
+    "id": "E106",
+    "leave_taken": 3,
+    "leave_quota": 20,
+    "pending_tasks": 5,
+    "last_leave_date": "2025-05-15"
+  },
+  {
+    "name": "Neena Raj",
+    "id": "E107",
+    "leave_taken": 14,
+    "leave_quota": 20,
+    "pending_tasks": 0,
+    "last_leave_date": "2025-03-20"
+  },
+  {
+    "name": "Anushka Harish",
+    "id": "E108",
+    "leave_taken": 9,
+    "leave_quota": 20,
+    "pending_tasks": 3,
+    "last_leave_date": "2025-04-18"
+  },
+  {
+    "name": "Anurag Gaonkar",
+    "id": "E109",
+    "leave_taken": 7,
+    "leave_quota": 20,
+    "pending_tasks": 1,
+    "last_leave_date": "2025-05-01"
+  },
+  {
+    "name": "Hringkesh Singh",
+    "id": "E110",
+    "leave_taken": 11,
+    "leave_quota": 20,
+    "pending_tasks": 2,
+    "last_leave_date": "2025-03-30"
+  },
+    {
+    "name": "Shrirang Zend",
+    "id": "E111",
+    "leave_taken": 1,
+    "leave_quota": 20,
+    "pending_tasks": 5,
+    "last_leave_date": "2025-04-30"
+  },
+    {
+    "name": "Sanskruti Adap",
+    "id": "E112",
+    "leave_taken": 14,
+    "leave_quota": 20,
+    "pending_tasks": 2,
+    "last_leave_date": "2025-01-12"
+  }
+
+]
