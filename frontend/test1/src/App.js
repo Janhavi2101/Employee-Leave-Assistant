@@ -1,13 +1,13 @@
-// App.js
 import React, { useState, useEffect } from 'react';
 import QuestionForm from './components/QuestionForm';
+import { Users, CheckCircle } from 'lucide-react';
 import './App.css';
 
 const App = () => {
   const [response, setResponse] = useState('');
   const [employees, setEmployees] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  // Fetch employee names from backend
   const fetchEmployees = () => {
     fetch('http://localhost:8000/employees')
       .then(res => res.json())
@@ -26,8 +26,8 @@ const App = () => {
     fetchEmployees();
   }, []);
 
-  // Ask assistant a question
   const handleAsk = async (employee_name, question) => {
+    setIsLoading(true);
     try {
       const res = await fetch('http://localhost:8000/ask', {
         method: 'POST',
@@ -39,23 +39,66 @@ const App = () => {
     } catch (error) {
       console.error("❌ Error asking question:", error);
       setResponse('Server error or connection failed.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <div className="container">
-      <h1 className="title">Employee Assistant</h1>
-      <QuestionForm
-        onAsk={handleAsk}
-        employees={employees}
-        onFileUpload={fetchEmployees}
-      />
-      {response && (
-        <div className="response">
-          <strong>Assistant Response:</strong><br />
-          {response}
+    <div className="app">
+      <div className="container">
+        {/* Header */}
+        <div className="header">
+          <div className="header-icon">
+            <Users className="header-icon-svg" />
+          </div>
+          <h1 className="title">Employee Assistant</h1>
+          <p className="subtitle">
+            Upload employee data and ask intelligent questions about your workforce
+          </p>
         </div>
-      )}
+
+        {/* Main Content */}
+        <div className="main-content">
+          <QuestionForm
+            onAsk={handleAsk}
+            employees={employees}
+            onFileUpload={fetchEmployees}
+          />
+
+          {/* Response Section */}
+          {(response || isLoading) && (
+            <div className="response-section">
+              <div className="response-header">
+                <div className="response-icon">
+                  {isLoading ? (
+                    <div className="loading-spinner"></div>
+                  ) : (
+                    <CheckCircle className="response-icon-svg" />
+                  )}
+                </div>
+                <h3 className="response-title">
+                  {isLoading ? 'Processing...' : 'Assistant Response'}
+                </h3>
+              </div>
+              
+              {isLoading ? (
+                <div className="loading-content">
+                  <div className="loading-spinner small"></div>
+                  <span>Analyzing your question...</span>
+                </div>
+              ) : (
+                <div className="response-content">
+                  <p className="response-text">
+                    {response}
+                  </p>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+
+      </div>
     </div>
   );
 };
